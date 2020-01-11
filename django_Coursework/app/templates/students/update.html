@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update Form </title>
+</head>
+<body>
+    <form method="POST" action="update/{{students.id}}">
+        {% csrf_token %}
+        Student's first_Name :<input name="first_Name" type="text" value ={{students.first_Name}}> <br>
+        Student's last_Name  : <input name="last_Name" type="text"  value={{students.last_Name}}> <br>
+        Student's Phoneno : <input name="Phoneno" type="text" value={{students.Phoneno}}> <br>
+        Student's Address : <input name="Address" type="text" value={{students.Address}}> <br>
+        <input type="submit">
+    </form>
+</body>
+</html>

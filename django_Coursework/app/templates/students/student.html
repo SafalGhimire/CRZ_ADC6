@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <title>List of Flights</title>
+</head>
+<body>
+    <h1>Students Information</h1>
+    {% for students in student %}
+    Student's first_Name : {{students.first_Name}} <br>
+    Student's last_Name : {{students.last_Name}} <br>
+    Student's Phoneno : {{students.Phoneno}}<br>
+    Student's Address : {{students.Address}}<br>
+
+    <a href="edit/{{students.id}}">Edit this</a> <br>
+    <a href="delete/{{students.id}}">Delete</a> <br>
+    ======================================== <br>
+    <br>.
+    {% endfor %}
+</body>
+</html>

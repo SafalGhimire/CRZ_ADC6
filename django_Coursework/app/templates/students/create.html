@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Form </title>
+    
+
+</head>
+<body>
+   <form method="POST" action="save">
+        {% csrf_token %}
+        Enter first_Name: <input name="first_Name" type="text" > <br>
+        Enter last_Name: <input name="last_Name" type="text" > <br>
+        Enter Phoneno: <input name="Phoneno" type="text" > <br>
+        Enter Address: <input name="Address" type="text" > <br> 
+        <br>      
+        <input type="submit">
+    
+      </form>
+
+    
+</body>
+</html>

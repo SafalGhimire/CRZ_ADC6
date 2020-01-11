@@ -1,14 +1,11 @@
 from django.shortcuts import render
-
 from django.http import HttpResponse
 from django.template import Template,Context 
-
 from .models import Student
+from django.db.models import Q
+from django.contrib import messages
+from django.views.generic import TemplateView, ListView
 
-
-
-def view_hello_world_test(request):
-    return render(request,'students/test.html')
 
 def view_student_lists(request):
     list_of_students= Student.objects.all()
@@ -64,3 +61,22 @@ def deletestudent(request, ID):
     studentobj = Student.objects.get(id=ID)
     studentobj.delete()
     return HttpResponse("Deleted")
+
+
+def search(request):
+    if request.method=='POST':
+        srch = request.POST['search']
+
+        if srch:
+            match = Student.objects.filter(
+                Q(first_Name__icontains=srch) | Q(Address__icontains=srch)
+                )
+
+            if match:
+                return render(request,'students/search.html', {'sr':match})
+            else:
+                messages.error(request,'result not found')
+        else:
+            return HttpResponseRedirect('/search/')
+
+    return render(request,'search.html')

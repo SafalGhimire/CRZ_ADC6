@@ -55,7 +55,7 @@ ROOT_URLCONF = 'django_Coursework.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['django_Coursework/app/templates'],
+        'DIRS': ['django_Coursework/app/templates/student'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

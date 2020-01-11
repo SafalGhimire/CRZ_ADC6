@@ -11,4 +11,11 @@ urlpatterns = [
     path('list/edit/update/<int:ID>',view_update_form_data_in_db),
     path('list/delete/<int:ID>',deletestudent),
     path('search/',search),
+    path('upload/',upload),
+    path('books/',book_list),
+    path('books/upload/',upload_book),
+    path('books/<int:ID/',delete_book),
+    path('class/books/', BookListView.as_view),
+    path('class/books/upload/',UploadBookView.as_view)
+
 ]

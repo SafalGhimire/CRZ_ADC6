@@ -3,6 +3,7 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
+    path('hello/',view_hello_world_test),
     path('test/',view_student_page),
     path('list/',view_student_lists),
     path('studentform/',view_student_form),
@@ -14,8 +15,10 @@ urlpatterns = [
     path('upload/',upload),
     path('books/',book_list),
     path('books/upload/',upload_book),
-    path('books/<int:ID/',delete_book),
+    path('books/<int:pk>/',delete_book),
     path('class/books/', BookListView.as_view),
-    path('class/books/upload/',UploadBookView.as_view)
-
-]
+    path('class/books/upload/',UploadBookView.as_view),
+    path('signup/',view_register_user),
+    path('login/',view_authenticate_user), 
+    path('logout/',view_logout),
+    ]

@@ -137,3 +137,30 @@ class UploadBookView(CreateView):
     form_class = BookForm
     success_url = reverse_lazy('class_book_list')
     template_name = 'upload_book.html'
+
+def view_register_user(request):
+    if request.method =="GET":
+        return render(request,'auth/register.html')
+    else:
+        print(request.POST)
+        user = User.objects.create_user(username=request.POST['input_username'],password=request.POST['input_password'],email=request.POST['input_email'])
+        user.save()
+        return HttpResponse("Signup Successful")
+
+
+def view_authenticate_user(request):
+    if request.method =="GET":
+        return render (request,'auth/login.html')
+    else:
+        print(request.POST)
+        user = authenticate(username=request.POST['input_username'],password=request.POST['input_password'])
+        print(user)
+        if user is not None:
+            login(request,user)
+            return render(request,'students/student.html')
+        else:
+            return HttpResponse('Authentication Failed')  
+
+def view_logout(request):
+    logout(request)
+    return render(request,'students/student.html')

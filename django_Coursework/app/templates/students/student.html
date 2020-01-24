@@ -2,10 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
+    <a href="search">Search</a> <br>
+    <a href="upload.html">upload</a> <br>
         <title>List of Flights</title>
 </head>
 <body>
+    {% if request.user.is_authenticated %}
+     Welcome {{user}}
+        <p><a href='/accounts/logout'>logout</a></p>
+    {% else %}
+
+        Unauthorized
+        <p><a href='/accounts/login'>login</a></p>
+    {% endif %}
+    
     <h1>Students Information</h1>
     {% for students in student %}
     Student's first_Name : {{students.first_Name}} <br>
@@ -15,8 +25,15 @@
 
     <a href="edit/{{students.id}}">Edit this</a> <br>
     <a href="delete/{{students.id}}">Delete</a> <br>
+    <a href="/search/">Delete</a> <br>
     ======================================== <br>
-    <br>.
+    <br>
+    {% empty %}
+    There are no students
+
     {% endfor %}
+
+
+    
 </body>
 </html>

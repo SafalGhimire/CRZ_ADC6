@@ -1,6 +1,6 @@
 # CRZ_ADC6
 team members:
-suraj
-niraj
-safal
-rahul
+1.suraj rai
+2.niraj khadka
+3.safal raj ghimire
+4.rahul shrestha
